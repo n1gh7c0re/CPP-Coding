@@ -28,10 +28,27 @@ public:
 	}
 };
 
+void solve_equation(quadratic_equation equation) {
+	double const D = equation.b * equation.b - 4 * equation.a * equation.c;
+	if (D > 0) {
+		double x1 = (-equation.b + sqrt(D)) / (2 * equation.a);
+		double x2 = (-equation.b - sqrt(D)) / (2 * equation.a);
+		cout << "Firsr root: " << x1 << ", Second root: " << x2 << endl;
+	}
+	else if (!D) {
+		double x = -equation.b / (2 * equation.a);
+		cout << "Single root: " << x << endl;
+	}
+	else cout << "Quadratic equation has no roots" << endl;
+}
+
 int main(void) {
-	cout << "Hello World!" << endl;
-	quadratic_equation equation;
-	equation.message();
+	while (1) {
+		quadratic_equation equation;
+		equation.message();
+
+		solve_equation(equation);
+	}
 
 	return 0;
 }
