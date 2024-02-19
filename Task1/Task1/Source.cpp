@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <limits>
 
 using namespace std;
 
@@ -35,7 +36,7 @@ void solve_equation(quadratic_equation equation) {
 		double x2 = (-equation.b - sqrt(D)) / (2 * equation.a);
 		cout << "Firsr root: " << x1 << ", Second root: " << x2 << endl;
 	}
-	else if (!D) {
+	else if (D <= numeric_limits<double>::epsilon()) {
 		double x = -equation.b / (2 * equation.a);
 		cout << "Single root: " << x << endl;
 	}
